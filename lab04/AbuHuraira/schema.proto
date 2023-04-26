@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package schema;
+
+message User {
+    int32 user_id = 1;
+    string user_name = 2;
+}
+
+message EmptyMessage {}
+
+service Database {
+    rpc PutUser(User) returns (status) {}
+    rpc DeleteUser(User) returns (status) {}
+    rpc GetUsers(EmptyMessage) returns (Users) {}
+}
+
+message status {
+    bool status = 1;
+}
+
+message Users {
+    repeated User users = 1;
+}
+
