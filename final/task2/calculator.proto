@@ -1,0 +1,27 @@
+// Author: Abu Huraira
+// Email: a.huraira@innopolis.university
+
+syntax = "proto3";
+
+package calculator;
+
+option csharp_namespace = "Calculator";
+
+service Calculator {
+  rpc Add(Numbers) returns (Result) {}
+  rpc Subtract(Numbers) returns (Result) {}
+  rpc Multiply(Numbers) returns (Result) {}
+  rpc Divide(Numbers) returns (Result) {}
+  rpc PrintResult(Result) returns (Empty) {}
+}
+
+message Empty {}
+
+message Numbers {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message Result {
+  float result = 1;
+}
